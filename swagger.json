@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Express API with Swagger",
+    "version": "1.0.0",
+    "description": "An API documentation for an Express.js application with Swagger"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "get": {
+        "summary": "Get a list of users",
+        "responses": {
+          "200": {
+            "summary": "Get a user",
+            "description": "list user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "trường này để chỉ đinh id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Chỉ định tên",
+          "default": "John Doe"
+        },
+        "email": {
+            "type": "object",
+            "default" : {
+                "test": "test@example.com"
+            }
+        }
+      }
+    }
+  }
+}
